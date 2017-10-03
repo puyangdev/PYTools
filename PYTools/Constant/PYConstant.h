@@ -69,8 +69,22 @@ alpha:1.0]
 ///请使用 PYLog代替NSLog PYLog在发布的产品不会打印日志
 #ifdef DEBUG
 #define PYLog(fmt,...) NSLog((@"\n\n[行号]%d\n" "[函数名]%s\n" "[日志]" fmt"\n"),__LINE__,__FUNCTION__,##__VA_ARGS__);
+#define PYLogError(arg,...) \
+{\
+if([arg isKindOfClass:[NSException class]] || [arg isKindOfClass:[NSError class]]){\
+NSLog(@"\n\n[行号]%d\n" "[函数名]%s\n" "[日志]%@\n", __LINE__, __FUNCTION__, arg);\
+}else{\
+NSLog((@"\n\n[行号]%d\n" "[函数名]%s\n" "[日志]" #arg"\n"), __LINE__, __FUNCTION__, ##__VA_ARGS__); }\
+}
 #else
 #define PYLog(fmt,...);
+#define PYLogError(arg,...) \
+{\
+if([arg isKindOfClass:[NSException class]] || [arg isKindOfClass:[NSError class]]){\
+NSLog(@"\n\n[行号]%d\n" "[函数名]%s\n" "[日志]%@\n", __LINE__, __FUNCTION__, arg);\
+}else{\
+NSLog((@"\n\n[行号]%d\n" "[函数名]%s\n" "[日志]" #arg"\n"), __LINE__, __FUNCTION__, ##__VA_ARGS__); }\
+}
 #endif
 
 //去除警告
