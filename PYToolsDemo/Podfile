@@ -1,0 +1,8 @@
+platform :ios, '8.0'
+
+def shared_pods
+    pod 'ReactiveObjC', '~> 3.0.0'
+end
+target "PYToolsDemo" do
+shared_pods
+end

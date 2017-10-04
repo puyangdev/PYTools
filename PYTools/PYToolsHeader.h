@@ -9,5 +9,13 @@
 #ifndef PYToolsHeader_h
 #define PYToolsHeader_h
 #import "PYConstant.h"
+#import "UIViewController+PYCategory.h"
+#import "UIView+PYUIViewController.h"
+#import "NSDate+PYNSString.h"
+#import "NSObject+PYClass.h"
+#import "NSObject+PYPerform.h"
+#import "PYGCDTimer.h"
+#import "UIView+PYInstance.h"
+#import "UIView+PYSubview.h"
 
 #endif /* PYToolsHeader_h */

@@ -41,6 +41,17 @@
 
 //窗口
 #define KEY_WINDOW  [[UIApplication sharedApplication] keyWindow]
+#if !PY_WINDOW
+#define PY_WINDOW \
+[[[UIApplication sharedApplication] delegate] window]
+#endif
+
+// 当前顶层Controller
+#define PYTopViewController \
+([UIViewController py_topViewController])
+// 当前顶层NavigationController
+#define PYTopNavigationController \
+(PYTopViewController.navigationController)
 
 //颜色
 ////RGB
@@ -139,5 +150,14 @@ return _instance; \
 [View.layer setMasksToBounds:YES];\
 [View.layer setBorderWidth:(Width)];\
 [View.layer setBorderColor:[Color CGColor]]
+
+#pragma mark weak self for block
+#if !PY_WEAK_SELF
+#define PY_WEAK_SELF \
+__weak __typeof(&*self)pyWeakSelf = self
+
+#define PY_STRONG_SELF \
+__strong __typeof(&*pyWeakSelf)pyStrongSelf = pyWeakSelf
+#endif
 
 #endif /* PYConstant_h */

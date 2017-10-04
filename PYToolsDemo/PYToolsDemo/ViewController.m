@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "PYToolsHeader.h"
 
 @interface ViewController ()
 
@@ -16,9 +17,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor redColor];
     // Do any additional setup after loading the view, typically from a nib.
 }
-
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    UIViewController *viewCtrl = [[UIViewController alloc] init];
+    UIView *sub = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 200)];
+    sub.backgroundColor = [UIColor orangeColor];
+    [viewCtrl.view addSubview:sub];
+    viewCtrl.view.backgroundColor = [UIColor blueColor];
+    [self py_presentTransparentModalViewController:viewCtrl animated:YES];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
