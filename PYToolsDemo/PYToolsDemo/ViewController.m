@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import "PYToolsHeader.h"
-
+#import "PYSubViewController.h"
 @interface ViewController ()
 
 @end
@@ -22,11 +22,7 @@
 }
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-    UIViewController *viewCtrl = [[UIViewController alloc] init];
-    UIView *sub = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 200)];
-    sub.backgroundColor = [UIColor orangeColor];
-    [viewCtrl.view addSubview:sub];
-    viewCtrl.view.backgroundColor = [UIColor blueColor];
+    PYSubViewController *viewCtrl = [[PYSubViewController alloc] init];
     [self py_presentTransparentModalViewController:viewCtrl animated:YES];
 }
 

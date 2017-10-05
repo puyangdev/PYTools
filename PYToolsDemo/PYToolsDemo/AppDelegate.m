@@ -7,7 +7,8 @@
 //
 
 #import "AppDelegate.h"
-
+#import <FCUUID/UIDevice+FCUUID.h>
+#import <PYTools/PYToolsHeader.h>
 @interface AppDelegate ()
 
 @end
@@ -17,6 +18,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    PYLog(@"%@",[[UIDevice currentDevice] uuid]);
     return YES;
 }
 

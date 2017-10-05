@@ -18,4 +18,7 @@
 #import "UIView+PYInstance.h"
 #import "UIView+PYSubview.h"
 
+#import "NSString+PYSize.h"
+#import "NSString+PYUrlParams.h"
+#import "UIDevice+PYHardware.h"
 #endif /* PYToolsHeader_h */

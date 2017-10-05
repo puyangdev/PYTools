@@ -1,7 +1,10 @@
 platform :ios, '8.0'
 
 def shared_pods
-    pod 'ReactiveObjC', '~> 3.0.0'
+    # pod 'PYTools', '~> 0.0.4'
+    #/Users/mac/Desktop/Test/PYTools
+     pod 'PYTools', :path => '/Users/mac/Desktop/Test/PYTools'
+     pod 'FCUUID'
 end
 target "PYToolsDemo" do
 shared_pods
